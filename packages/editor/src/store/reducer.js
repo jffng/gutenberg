@@ -156,13 +156,9 @@ export const editor = flow( [
 
 		return state;
 	} ),
-	selection( state = { start: {}, end: {} }, action ) {
-		switch ( action.type ) {
-			case 'RESET_EDITOR_SELECTION':
-				if ( action.selection === state ) {
-					return state;
-				}
-				return action.selection;
+	selection( state = { start: {}, end: {} }, { type, selection } ) {
+		if ( type === 'RESET_EDITOR_SELECTION' && selection !== state ) {
+			return selection;
 		}
 
 		return state;

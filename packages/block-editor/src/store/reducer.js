@@ -191,7 +191,16 @@ function withPersistentBlockChange( reducer ) {
 	return ( state, action ) => {
 		let nextState = reducer( state, action );
 
-		const selectionActions = new Set( [ 'SELECTION_CHANGE', 'TOGGLE_SELECTION', 'SELECT_BLOCK', 'MULTI_SELECT', 'START_MULTI_SELECT', 'STOP_MULTI_SELECT', 'CLEAR_SELECTED_BLOCK', 'RESET_SELECTION' ] );
+		const selectionActions = new Set( [
+			'SELECTION_CHANGE',
+			'TOGGLE_SELECTION',
+			'SELECT_BLOCK',
+			'MULTI_SELECT',
+			'START_MULTI_SELECT',
+			'STOP_MULTI_SELECT',
+			'CLEAR_SELECTED_BLOCK',
+			'RESET_SELECTION',
+		] );
 
 		if ( selectionActions.has( action.type ) ) {
 			return {
