@@ -112,13 +112,14 @@ class BlockEditorProvider extends Component {
 				blocks = newBlocks;
 				isPersistent = newIsPersistent;
 
+				// Selection must be updated first, so it is recorded in history when the content change happens.
+				onSelectionChange( getSelection() );
+
 				if ( isPersistent ) {
 					onChange( blocks );
 				} else {
 					onInput( blocks );
 				}
-
-				onSelectionChange( getSelection() );
 			}
 		} );
 	}

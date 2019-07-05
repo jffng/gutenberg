@@ -136,6 +136,7 @@ export const editor = flow( [
 		ignoreTypes: [
 			'RESET_POST',
 			'UPDATE_POST',
+			'RESET_EDITOR_SELECTION',
 		],
 		shouldOverwriteState,
 	} ),
