@@ -259,6 +259,13 @@ describe( 'state', () => {
 						clicken: [ newChildBlockId ],
 						[ newChildBlockId ]: [],
 					},
+					selection: {
+						start: {},
+						end: {},
+						initialPosition: null,
+						isEnabled: true,
+						isMultiSelecting: false,
+					},
 				} );
 			} );
 
@@ -321,6 +328,13 @@ describe( 'state', () => {
 						'': [ 'clicken' ],
 						clicken: [ newChildBlockId ],
 						[ newChildBlockId ]: [],
+					},
+					selection: {
+						start: {},
+						end: {},
+						initialPosition: null,
+						isEnabled: true,
+						isMultiSelecting: false,
 					},
 				} );
 			} );
@@ -433,6 +447,13 @@ describe( 'state', () => {
 						[ newChildBlockId2 ]: [],
 						[ newChildBlockId3 ]: [],
 					},
+					selection: {
+						start: {},
+						end: {},
+						initialPosition: null,
+						isEnabled: true,
+						isMultiSelecting: false,
+					},
 				} );
 			} );
 
@@ -504,6 +525,13 @@ describe( 'state', () => {
 						clicken: [ newChildBlockId ],
 						[ newChildBlockId ]: [],
 					},
+					selection: {
+						start: {},
+						end: {},
+						initialPosition: null,
+						isEnabled: true,
+						isMultiSelecting: false,
+					},
 				} );
 			} );
 		} );
@@ -517,6 +545,13 @@ describe( 'state', () => {
 				order: {},
 				isPersistentChange: true,
 				isIgnoredChange: false,
+				selection: {
+					start: {},
+					end: {},
+					initialPosition: null,
+					isEnabled: true,
+					isMultiSelecting: false,
+				},
 			} );
 		} );
 
