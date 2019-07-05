@@ -155,6 +155,17 @@ export const editor = flow( [
 
 		return state;
 	} ),
+	selection( state = { start: {}, end: {} }, action ) {
+		switch ( action.type ) {
+			case 'RESET_EDITOR_SELECTION':
+				if ( action.selection === state ) {
+					return state;
+				}
+				return action.selection;
+		}
+
+		return state;
+	},
 	edits( state = {}, action ) {
 		switch ( action.type ) {
 			case 'EDIT_POST':

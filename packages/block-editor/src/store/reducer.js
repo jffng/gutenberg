@@ -191,7 +191,7 @@ function withPersistentBlockChange( reducer ) {
 	return ( state, action ) => {
 		let nextState = reducer( state, action );
 
-		const selectionActions = new Set( [ 'SELECTION_CHANGE', 'TOGGLE_SELECTION', 'SELECT_BLOCK', 'MULTI_SELECT', 'START_MULTI_SELECT', 'STOP_MULTI_SELECT', 'CLEAR_SELECTED_BLOCK' ] );
+		const selectionActions = new Set( [ 'SELECTION_CHANGE', 'TOGGLE_SELECTION', 'SELECT_BLOCK', 'MULTI_SELECT', 'START_MULTI_SELECT', 'STOP_MULTI_SELECT', 'CLEAR_SELECTED_BLOCK', 'RESET_SELECTION' ] );
 
 		if ( selectionActions.has( action.type ) ) {
 			return {
@@ -518,6 +518,8 @@ export function blockSelection( state = BLOCK_SELECTION_INITIAL_STATE, action ) 
 					offset: action.endOffset,
 				},
 			};
+		case 'RESET_SELECTION':
+			return action.selection;
 	}
 
 	return state;
