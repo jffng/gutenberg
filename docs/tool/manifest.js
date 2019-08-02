@@ -6,7 +6,7 @@ const fs = require( 'fs' );
 const glob = require( 'glob' ).sync;
 
 const baseRepoUrl = '..';
-const componentPaths = glob( 'packages/components/src/*/**/README.md' );
+const componentPaths = glob( 'packages/components/src/*/**/*.md' );
 const packagePaths = glob( 'packages/*/package.json' ).map(
 	( fileName ) => fileName.split( '/' )[ 1 ]
 );
@@ -39,12 +39,18 @@ function getPackageManifest( packageFolderNames ) {
  */
 function getComponentManifest( paths ) {
 	return paths.map( ( filePath ) => {
-		const slug = nth( filePath.split( '/' ), -2 );
+		let parent = 'components';
+		let slug = nth( filePath.split( '/' ), -2 );
+		const fn = nth( filePath.split( '/' ), -1 );
+		if ( fn.toLowerCase() !== 'readme.md' ) {
+			parent = slug;
+			slug = slug + '-' + fn.split( '.' )[ 0 ].toLowerCase( );
+		}
 		return {
 			title: upperFirst( camelCase( slug ) ),
 			slug,
 			markdown_source: `${ baseRepoUrl }/${ filePath }`,
-			parent: 'components',
+			parent,
 		};
 	} );
 }

@@ -594,6 +594,12 @@
 		"parent": "components"
 	},
 	{
+		"title": "ButtonDesign",
+		"slug": "button-design",
+		"markdown_source": "../packages/components/src/button/DESIGN.md",
+		"parent": "button"
+	},
+	{
 		"title": "Button",
 		"slug": "button",
 		"markdown_source": "../packages/components/src/button/README.md",
